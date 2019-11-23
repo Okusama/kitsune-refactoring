@@ -38,7 +38,9 @@ export default class Signin extends React.Component<ISigninState> implements IFo
         signin(sendData)
             .then(res => {
                 if (res.isLogin){
-                    console.log("Connected");
+                    this.setState({
+                        redirect: true
+                    });
                 } else {
                     console.log("User Not Exist");
                 }

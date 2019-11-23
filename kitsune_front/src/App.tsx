@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 // Pages
 import Signin from "./pages/public/Signin";
 import Signup from "./pages/public/Signup";
+import Home from "./pages/public/Home";
 
 export default class App extends React.Component {
 
@@ -17,6 +18,7 @@ export default class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component={Signin}/>
                         <Route path="/signup" component={Signup}/>
+                        <Route path="/home" component={Home}/>
                     </Switch>
                 </main>
             </div>
