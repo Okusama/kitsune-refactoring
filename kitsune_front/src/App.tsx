@@ -1,21 +1,18 @@
 import React from 'react';
 //React Router
-import {Switch, Route, withRouter} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import {ProtectedRoute} from './components/customRoutes';
 
 //Redux
 import {IRootState} from "./store";
-import {Dispatch} from "redux";
-import {UserActions} from "./store/user/types";
-import * as actions from "./store/user/actions";
-import {connect} from "react-redux";
+import { connect } from 'react-redux';
 
 // Styles
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles/css/main.css"
 
-// Api
-import {authentication} from "./utils/api";
+// Component
+import Header from './components/Header';
 
 // Pages
 import Signin from "./pages/public/Signin";
@@ -23,48 +20,26 @@ import Signup from "./pages/public/Signup";
 import Home from "./pages/public/Home";
 
 //Redux Wrap
-const mapStateToProps = ({user}: IRootState) => {
-    const {id, avatar, isAdmin, isLogin, token} = user;
-    return {id, avatar, isAdmin, isLogin, token};
+const mapStateToProps = ({user}: IRootState): any => {
+    const {isAdmin, isLogin} = user;
+    return {isAdmin, isLogin};
 };
 
-const mapDispatcherToProps = (dispatch: Dispatch<UserActions>) => {
-    return {
-        runActionUserAdmin: (id: string, avatar: string, token: string) => dispatch(actions.runActionUserAdmin(id, avatar, token)),
-        runActionUserLogin: (id: string, avatar: string, token: string) => dispatch(actions.runActionUserLogin(id, avatar, token))
-    }
-};
-
-type ReduxType = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatcherToProps>;
+type ReduxType = ReturnType<typeof mapStateToProps>;
 
 class App extends React.Component<ReduxType> {
 
-    constructor(props: ReduxType){
-        super(props);
-    }
-
-    isLogin = () => {
-
-        let sendData = {
-            token: window.localStorage.getItem("token")
-        };
-
-        authentication({sendData})
-            .then(res => {
-                if (res.isLogin){
-                    if (res.isAdmin){
-                        this.props.runActionUserAdmin(res.id, res.avatar, res.token);
-                    } else {
-                        this.props.runActionUserLogin(res.id, res.avatar, res.token)
-                    }
-                }
-            })
-
-    };
-
     render(): React.ReactElement<React.JSXElementConstructor<any>> {
+
+        let header = null;
+
+        if (this.props.isLogin){
+            header = <Header/>
+        }
+
         return (
             <div className="App">
+                {header}
                 <main>
                     <Switch>
                         <Route exact path="/" component={Signin}/>
@@ -78,4 +53,4 @@ class App extends React.Component<ReduxType> {
 
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatcherToProps)(App));
+export default connect(mapStateToProps, null)(App);

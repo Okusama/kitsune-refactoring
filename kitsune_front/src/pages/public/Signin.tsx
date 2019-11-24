@@ -3,10 +3,9 @@ import IFormComponents from "../../interfaces/IFormComponents";
 // Router
 import {Link, Redirect} from "react-router-dom";
 // Api
-import {signin} from "../../utils/api";
+import {authentication, signin} from "../../utils/api";
 // Redux
 import {connect} from "react-redux";
-import {IRootState} from "../../store";
 import { Dispatch } from "redux";
 import { UserActions } from "../../store/user/types";
 import * as actions from "../../store/user/actions";
@@ -20,11 +19,6 @@ interface ISigninState {
 }
 
 //Redux Wrap
-const mapStateToProps = ({user}: IRootState) => {
-    const {id, avatar, isAdmin, isLogin, token} = user;
-    return {id, avatar, isAdmin, isLogin, token};
-};
-
 const mapDispatcherToProps = (dispatch: Dispatch<UserActions>) => {
     return {
         runActionUserAdmin: (id: string, avatar: string, token: string) => dispatch(actions.runActionUserAdmin(id, avatar, token)),
@@ -32,7 +26,7 @@ const mapDispatcherToProps = (dispatch: Dispatch<UserActions>) => {
     }
 };
 
-type ReduxType = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatcherToProps>;
+type ReduxType = ReturnType<typeof mapDispatcherToProps>;
 
 class Signin extends React.Component<ReduxType> implements IFormComponents{
 
@@ -40,7 +34,6 @@ class Signin extends React.Component<ReduxType> implements IFormComponents{
     
     constructor(props: ReduxType){
         super(props);
-        const {id, avatar, isAdmin, isLogin, token, runActionUserAdmin, runActionUserLogin} = this.props;
         this.state = {
             email: "",
             password: "",
@@ -48,6 +41,32 @@ class Signin extends React.Component<ReduxType> implements IFormComponents{
             errorMsg: ""
         }
     }
+
+    componentDidMount(): void {
+        this.isLogin();
+    }
+
+    isLogin = () => {
+
+        let sendData = {
+            token: window.localStorage.getItem("token")
+        };
+
+        authentication(sendData)
+            .then(res => {
+                if (res.isLogin){
+                    if (res.isAdmin){
+                        this.props.runActionUserAdmin(res.id, res.avatar, res.token);
+                    } else {
+                        this.props.runActionUserLogin(res.id, res.avatar, res.token)
+                    }
+                    this.setState({
+                        redirectAuth: true
+                    })
+                }
+            })
+
+    };
 
     handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
         this.setState({
@@ -131,4 +150,4 @@ class Signin extends React.Component<ReduxType> implements IFormComponents{
 
 }
 
-export default connect(mapStateToProps, mapDispatcherToProps)(Signin);
+export default connect(null, mapDispatcherToProps)(Signin);

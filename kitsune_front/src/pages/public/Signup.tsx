@@ -12,7 +12,7 @@ interface ISignupState {
     redirect: boolean
 }
 
-export default class Signup extends React.Component<ISignupState> implements IFormComponents{
+export default class Signup extends React.Component implements IFormComponents{
 
     state: ISignupState;
 

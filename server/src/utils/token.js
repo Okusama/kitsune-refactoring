@@ -15,7 +15,9 @@ let decode = (token) => {
 
 let getApiPermission = (token) => {
     return decode(token)
-        .then(decoded => decoded.role === "player" || decoded.role === "admin")
+        .then(decoded => {
+            return decoded.role === "player" || decoded.role === "admin"
+        })
         .catch(err => false);
 };
 
