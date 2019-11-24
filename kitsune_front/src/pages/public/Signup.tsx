@@ -1,7 +1,8 @@
 import React from "react";
 import IFormComponents from "../../interfaces/IFormComponents";
 import { signup } from "../../utils/api";
-import { Redirect } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
+import {Button, Form, Col} from "react-bootstrap";
 
 interface ISignupState {
     email: string,
@@ -72,36 +73,29 @@ export default class Signup extends React.Component<ISignupState> implements IFo
         }
 
         return(
-            <div className="signUp">
+            <Col lg={12} className="signUp text-center">
                 <h2>Sign Up</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label htmlFor="email">
-                            Email:
-                        </label>
-                        <input id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
-                    </div>
-                    <div>
-                        <label htmlFor="password">
-                            Password:
-                        </label>
-                        <input id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
-                    </div>
-                    <div>
-                        <label htmlFor="cpassword">
-                            Confirm Password:
-                        </label>
-                        <input id="cpassword" value={this.state.cpassword} onChange={this.handleChange} type="password"/>
-                    </div>
-                    <div>
-                        <label htmlFor="pseudo">
-                            Pseudo:
-                        </label>
-                        <input id="pseudo" value={this.state.pseudo} onChange={this.handleChange} type="text"/>
-                    </div>
-                    <input className="button-form" type="submit"/>
-                </form>
-            </div>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Email:</Form.Label>
+                        <Form.Control id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label htmlFor="password">Password:</Form.Label>
+                        <Form.Control id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label htmlFor="cpassword">Confirm Password:</Form.Label>
+                        <Form.Control id="cpassword" value={this.state.cpassword} onChange={this.handleChange} type="password"/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label htmlFor="pseudo">Pseudo:</Form.Label>
+                        <Form.Control id="pseudo" value={this.state.pseudo} onChange={this.handleChange} type="text"/>
+                    </Form.Group>
+                    <Button className="button-form" type="submit">Submit</Button>
+                </Form>
+                <Link to="/">Return to SignIn</Link>
+            </Col>
         );
     }
 

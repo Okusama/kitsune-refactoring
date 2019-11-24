@@ -11,7 +11,8 @@ import * as actions from "./store/user/actions";
 import {connect} from "react-redux";
 
 // Styles
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/styles/css/main.css"
 
 // Api
 import {authentication} from "./utils/api";
@@ -20,8 +21,6 @@ import {authentication} from "./utils/api";
 import Signin from "./pages/public/Signin";
 import Signup from "./pages/public/Signup";
 import Home from "./pages/public/Home";
-
-
 
 //Redux Wrap
 const mapStateToProps = ({user}: IRootState) => {
@@ -42,7 +41,6 @@ class App extends React.Component<ReduxType> {
 
     constructor(props: ReduxType){
         super(props);
-        const {id, avatar, isAdmin, isLogin, token, runActionUserAdmin, runActionUserLogin} = this.props
     }
 
     isLogin = () => {
@@ -62,7 +60,7 @@ class App extends React.Component<ReduxType> {
                 }
             })
 
-    }
+    };
 
     render(): React.ReactElement<React.JSXElementConstructor<any>> {
         return (
@@ -71,7 +69,7 @@ class App extends React.Component<ReduxType> {
                     <Switch>
                         <Route exact path="/" component={Signin}/>
                         <Route exact path="/signup" component={Signup}/>
-                        <ProtectedRoute isLogin={true} path="/home" component={Home}/>
+                        <ProtectedRoute isLogin={this.props.isLogin} path="/home" component={Home}/>
                     </Switch>
                 </main>
             </div>
@@ -80,4 +78,4 @@ class App extends React.Component<ReduxType> {
 
 }
 
-export default connect(mapStateToProps, mapDispatcherToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatcherToProps)(App));

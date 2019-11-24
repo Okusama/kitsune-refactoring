@@ -10,6 +10,7 @@ import {IRootState} from "../../store";
 import { Dispatch } from "redux";
 import { UserActions } from "../../store/user/types";
 import * as actions from "../../store/user/actions";
+import {Button, Col, Form} from "react-bootstrap";
 
 interface ISigninState {
     email: string,
@@ -107,28 +108,24 @@ class Signin extends React.Component<ReduxType> implements IFormComponents{
         }
 
         return(
-            <div className="signIn">
-                <h1>Sign In</h1>
-                <Link to="/signup">Sign Up</Link>
+            <Col lg={12} className="signIn text-center">
+                <h1>Connection</h1>
                 <div className="errorBox">
                     {errorMsg}
                 </div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label htmlFor="email">
-                            Email:
-                        </label>
-                        <input id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
-                    </div>
-                    <div>
-                        <label htmlFor="password">
-                            Password:
-                        </label>
-                        <input id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
-                    </div>
-                    <input className="button-form" type="submit"/>
-                </form>
-            </div>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Email:</Form.Label>
+                        <Form.Control id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">Submit</Button>
+                </Form>
+                <Link to="/signup">Sign Up</Link>
+            </Col>
         );
     }
 
