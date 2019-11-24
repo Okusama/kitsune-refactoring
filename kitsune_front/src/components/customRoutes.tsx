@@ -1,6 +1,13 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import {PrivateRouteProps, ProtectedRouteProps} from "../interfaces/components/ICustomRouteProps";
+import {Route, Redirect, RouteProps} from "react-router-dom";
+
+interface ProtectedRouteProps extends RouteProps {
+    isLogin: boolean
+}
+
+interface PrivateRouteProps extends RouteProps {
+    isAdmin: boolean
+}
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = props => {
     if (!props.isLogin) {

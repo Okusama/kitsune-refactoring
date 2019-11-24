@@ -1,8 +1,13 @@
 import React from "react";
-import IFormComponents from "../../interfaces/components/IFormComponents";
-import ISigninState from "../../interfaces/states/ISigninState";
+import IFormComponents from "../../interfaces/IFormComponents";
 import {Link, Redirect} from "react-router-dom";
 import {signin} from "../../utils/api";
+
+interface ISigninState {
+    email: string,
+    password: string,
+    redirect: boolean
+}
 
 export default class Signin extends React.Component<ISigninState> implements IFormComponents{
 

@@ -1,8 +1,15 @@
-import React, {FormEvent} from "react";
-import IFormComponents from "../../interfaces/components/IFormComponents";
-import ISignupState from "../../interfaces/states/ISignupState";
+import React from "react";
+import IFormComponents from "../../interfaces/IFormComponents";
 import { signup } from "../../utils/api";
 import { Redirect } from "react-router-dom";
+
+interface ISignupState {
+    email: string,
+    password: string,
+    cpassword: string,
+    pseudo: string,
+    redirect: boolean
+}
 
 export default class Signup extends React.Component<ISignupState> implements IFormComponents{
 

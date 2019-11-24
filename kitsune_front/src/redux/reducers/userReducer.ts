@@ -1,5 +1,12 @@
-import IUserState from "../../interfaces/redux/IUserState";
 import { USER } from "../constants";
+
+export interface IUserState {
+    id: string,
+    avatar: string,
+    isAdmin: boolean,
+    isLogin: boolean,
+    token: string
+}
 
 const INITIAL_STATE = <IUserState>{
     id: "",
@@ -9,7 +16,7 @@ const INITIAL_STATE = <IUserState>{
     token: ""
 };
 
-export default function userReducer(state = <IUserState> INITIAL_STATE, action: {type: string, id: string, avatar: string, token: string}){
+export function userReducer(state = <IUserState> INITIAL_STATE, action: {type: string, id: string, avatar: string, token: string}){
 
     switch (action.type) {
 
