@@ -4,11 +4,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
-import {createStore} from "redux";
-import ROOT_REDUCER from "./redux/reducer";
+import store from './store';
 
 ReactDOM.render(
-    <Provider store={createStore(ROOT_REDUCER)}>
+    <Provider store={store}>
         <BrowserRouter>
             <App />
         </BrowserRouter>

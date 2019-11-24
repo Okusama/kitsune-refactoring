@@ -22,3 +22,9 @@ export let signin = (data:{}): Promise<any> => {
     return fetch(URL + "/user/signin", postDataOptions(data))
         .then(res => parseRes(res));
 };
+
+export let authentication = (data:{}): Promise<any> => {
+    return fetch(URL + "/user/authentication", postDataOptions(data))
+        .then(res => parseRes(res));
+}
+
