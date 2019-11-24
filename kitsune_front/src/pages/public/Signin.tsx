@@ -21,7 +21,7 @@ export default class Signin extends React.Component<ISigninState> implements IFo
         this.setState({
            [event.currentTarget.id]: event.currentTarget.value
         });
-    }
+    };
 
     handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
 
@@ -46,7 +46,7 @@ export default class Signin extends React.Component<ISigninState> implements IFo
                 }
             });
 
-    }
+    };
 
     render(): React.ReactElement<React.JSXElementConstructor<any>> {
 

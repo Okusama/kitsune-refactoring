@@ -24,7 +24,7 @@ APP.use(function (req, res, next) {
 });
 
 //Routes
-let user = require(__dirname + "/src/routes/user");
+let user = require(__dirname + "/src/routing/user");
 APP.use("/user", user);
 
 //Port d"écoute

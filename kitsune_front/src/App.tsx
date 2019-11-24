@@ -1,5 +1,6 @@
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
+import {ProtectedRoute} from './components/customRoutes';
 
 // Styles
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -9,6 +10,7 @@ import Signin from "./pages/public/Signin";
 import Signup from "./pages/public/Signup";
 import Home from "./pages/public/Home";
 
+
 export default class App extends React.Component {
 
     render(): React.ReactElement<React.JSXElementConstructor<any>> {
@@ -17,8 +19,8 @@ export default class App extends React.Component {
                 <main>
                     <Switch>
                         <Route exact path="/" component={Signin}/>
-                        <Route path="/signup" component={Signup}/>
-                        <Route path="/home" component={Home}/>
+                        <Route exact path="/signup" component={Signup}/>
+                        <ProtectedRoute isLogin={true} path="/home" component={Home}/>
                     </Switch>
                 </main>
             </div>
