@@ -173,7 +173,6 @@ let authentication = (req, res) => {
     }
 };
 
-
 module.exports.signup = signup;
 module.exports.signin = signin;
 module.exports.authentication = authentication;

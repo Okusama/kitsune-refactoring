@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component, JSXElementConstructor, ReactElement} from "react";
 //React Router
 import {Switch, Route} from "react-router-dom";
 import {ProtectedRoute} from './components/customRoutes';
@@ -19,6 +19,7 @@ import Signin from "./pages/public/Signin";
 import Signup from "./pages/public/Signup";
 import Home from "./pages/public/Home";
 
+
 //Redux Wrap
 const mapStateToProps = ({user}: IRootState): any => {
     const {isAdmin, isLogin} = user;
@@ -27,9 +28,9 @@ const mapStateToProps = ({user}: IRootState): any => {
 
 type ReduxType = ReturnType<typeof mapStateToProps>;
 
-class App extends React.Component<ReduxType> {
+class App extends Component<ReduxType> {
 
-    render(): React.ReactElement<React.JSXElementConstructor<any>> {
+    render(): ReactElement<JSXElementConstructor<any>> {
 
         let header = null;
 

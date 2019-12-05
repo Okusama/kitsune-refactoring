@@ -4,6 +4,8 @@ const JWT_CONFIG = require("../../config/jwt");
 let decode = (token) => {
     return new Promise((resolve, reject) => {
         JWT.verify(token, JWT_CONFIG.private_key, (err, decoded) => {
+            console.log(decoded);
+            console.error(err);
             if (decoded === undefined){
                 reject(false);
             } else {

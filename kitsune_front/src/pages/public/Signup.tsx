@@ -75,26 +75,28 @@ export default class Signup extends React.Component implements IFormComponents{
         return(
             <Col lg={12} className="signUp text-center">
                 <h2>Sign Up</h2>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group>
-                        <Form.Label>Email:</Form.Label>
-                        <Form.Control id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label htmlFor="password">Password:</Form.Label>
-                        <Form.Control id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label htmlFor="cpassword">Confirm Password:</Form.Label>
-                        <Form.Control id="cpassword" value={this.state.cpassword} onChange={this.handleChange} type="password"/>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label htmlFor="pseudo">Pseudo:</Form.Label>
-                        <Form.Control id="pseudo" value={this.state.pseudo} onChange={this.handleChange} type="text"/>
-                    </Form.Group>
-                    <Button className="button-form" type="submit">Submit</Button>
-                </Form>
                 <Link to="/">Return to SignIn</Link>
+                <div>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group>
+                            <Form.Label>Email:</Form.Label>
+                            <Form.Control id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label htmlFor="password">Password:</Form.Label>
+                            <Form.Control id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label htmlFor="cpassword">Confirm Password:</Form.Label>
+                            <Form.Control id="cpassword" value={this.state.cpassword} onChange={this.handleChange} type="password"/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label htmlFor="pseudo">Pseudo:</Form.Label>
+                            <Form.Control id="pseudo" value={this.state.pseudo} onChange={this.handleChange} type="text"/>
+                        </Form.Group>
+                        <Button className="button-form" type="submit">Submit</Button>
+                    </Form>
+                </div>
             </Col>
         );
     }

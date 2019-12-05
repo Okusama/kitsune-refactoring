@@ -31,7 +31,7 @@ type ReduxType = ReturnType<typeof mapDispatcherToProps>;
 class Signin extends React.Component<ReduxType> implements IFormComponents{
 
     state: ISigninState;
-    
+
     constructor(props: ReduxType){
         super(props);
         this.state = {
@@ -70,7 +70,7 @@ class Signin extends React.Component<ReduxType> implements IFormComponents{
 
     handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
         this.setState({
-           [event.currentTarget.id]: event.currentTarget.value
+            [event.currentTarget.id]: event.currentTarget.value
         });
     };
 
@@ -129,21 +129,23 @@ class Signin extends React.Component<ReduxType> implements IFormComponents{
         return(
             <Col lg={12} className="signIn text-center">
                 <h1>Connection</h1>
-                <div className="errorBox">
-                    {errorMsg}
-                </div>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group>
-                        <Form.Label>Email:</Form.Label>
-                        <Form.Control id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Password:</Form.Label>
-                        <Form.Control id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
-                    </Form.Group>
-                    <Button variant="primary" type="submit">Submit</Button>
-                </Form>
                 <Link to="/signup">Sign Up</Link>
+                <div>
+                    <div className="errorBox">
+                        {errorMsg}
+                    </div>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group>
+                            <Form.Label>Email:</Form.Label>
+                            <Form.Control id="email" value={this.state.email} onChange={this.handleChange} type="email"/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Password:</Form.Label>
+                            <Form.Control id="password" value={this.state.password} onChange={this.handleChange} type="password"/>
+                        </Form.Group>
+                        <Button type="submit">Submit</Button>
+                    </Form>
+                </div>
             </Col>
         );
     }

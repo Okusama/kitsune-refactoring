@@ -1,10 +1,55 @@
+/*Color*/
+/*General*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0 auto;
+  font-size: 1.4rem;
+  color: #FFB2AA;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #AA4339;
+}
+
+a {
+  text-decoration: none;
+  color: #FFB2AA;
+}
+
+/*Connection Pages*/
 .signIn, .signUp {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.signIn form, .signUp form {
+.signIn > div, .signUp > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+.signIn > div form, .signUp > div form {
   width: 50%;
+}
+.signIn > div form input, .signIn > div form button, .signUp > div form input, .signUp > div form button {
+  border-radius: 30px;
+}
+.signIn > div form button, .signUp > div form button {
+  background-color: #801F15;
+  border-color: #D4746A;
 }
 
 header img {
