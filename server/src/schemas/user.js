@@ -42,16 +42,7 @@ user.methods = {
             .then(res => this.isVisitor() ? false : res)
             .catch(err => err);
     },
-    getToken: () => {
-
-        let user = {
-            id: this._id,
-            twitch_login: this.twitch_login,
-            pseudo: this.pseudo,
-            role: this.role,
-            avatar: this.avatar
-        };
-
+    getToken: (user) => {
         return JWT.sign(user, JWT_CONFIG.private_key);
     },
     isAdmin: () => {

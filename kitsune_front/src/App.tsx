@@ -18,6 +18,7 @@ import Header from './components/Header';
 import Signin from "./pages/public/Signin";
 import Signup from "./pages/public/Signup";
 import Home from "./pages/public/Home";
+import Logout from "./pages/public/Logout";
 
 
 //Redux Wrap
@@ -30,6 +31,7 @@ type ReduxType = ReturnType<typeof mapStateToProps>;
 
 class App extends Component<ReduxType> {
 
+
     render(): ReactElement<JSXElementConstructor<any>> {
         return (
             <div className="App">
@@ -37,14 +39,27 @@ class App extends Component<ReduxType> {
                 <main>
                     <div className="topAside">
                         <div>
-                            <Link to="/signup">Sign Up</Link>
-                            <Link to="/">Sign In</Link>
+                            {
+                                this.props.isLogin ?
+                                (
+                                    <React.Fragment>
+                                        <Link to="/logout">Logout</Link>
+                                    </React.Fragment>
+                                ) :
+                                (
+                                    <React.Fragment>
+                                        <Link to="/signup">Sign Up</Link>
+                                        <Link to="/">Sign In</Link>
+                                    </React.Fragment>
+                                )
+                            }
                             <img src={require("./assets/img/default_avatar.png")} alt=""/>
                         </div>
                     </div>
                     <Switch>
                         <Route exact path="/" component={Signin}/>
                         <Route exact path="/signup" component={Signup}/>
+                        <Route exact path="/logout" component={Logout}/>
                         <ProtectedRoute isLogin={this.props.isLogin} path="/home" component={Home}/>
                     </Switch>
                 </main>

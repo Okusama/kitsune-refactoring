@@ -1,7 +1,7 @@
 import React from "react";
 import IFormComponents from "../../interfaces/IFormComponents";
 // Router
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 // Api
 import {authentication, signin} from "../../utils/api";
 // Redux

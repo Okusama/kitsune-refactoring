@@ -41,12 +41,15 @@ main {
 
         div {
 
-            width: 15%;
             height: 5vh;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 10px;
+            justify-content: flex-end;
+            padding: 5px;
+
+            > a {
+                margin-right: 10px;
+            }
 
             > img{
                 width: 15%;
@@ -69,6 +72,10 @@ a {
     color: $fifthColor;
 }
 
+a:hover {
+    color: $fifthColor !important;
+}
+
 input {
     background-color: black !important;
     color: antiquewhite !important;
@@ -87,7 +94,6 @@ input {
 
     display: flex;
     flex-direction: row;
-
 
 }
 
@@ -116,6 +122,13 @@ header {
             a {
                 width: inherit;
                 height: inherit;
+                font-size: 3.5rem;
+
+                span {
+                    position: absolute;
+                    z-index: 1000;
+                }
+
             }
 
             img {
