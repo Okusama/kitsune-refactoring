@@ -127,9 +127,7 @@ class Signin extends React.Component<ReduxType> implements IFormComponents{
         }
 
         return(
-            <Col lg={12} className="signIn text-center">
-                <h1>Connection</h1>
-                <Link to="/signup">Sign Up</Link>
+            <Col lg={12} className="signIn content text-center">
                 <div>
                     <div className="errorBox">
                         {errorMsg}

@@ -1,19 +1,31 @@
 import React from "react";
-import {Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 export default class Header extends React.Component {
     render(): React.ReactElement<React.JSXElementConstructor<any>> {
         return(
             <header>
-                <Col lg={2}>
-                    <nav>
-                        <ul className="list-unstyled">
-                            <li>
+                <nav>
+                    <ul className="list-unstyled">
+                        <li>
+                            <Link to="">
                                 <img src={require("../assets/img/logo.png")} alt=""/>
-                            </li>
-                        </ul>
-                    </nav>
-                </Col>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="">T<span className="hidden">ournament</span></Link>
+                        </li>
+                        <li>
+                            <Link to="">C<span className="hidden">hampionship</span></Link>
+                        </li>
+                        <li>
+                            <Link to="">R<span className="hidden">ace</span></Link>
+                        </li>
+                        <li>
+                            <Link to="">A<span className="hidden">dmin</span></Link>
+                        </li>
+                    </ul>
+                </nav>
             </header>
         );
     }

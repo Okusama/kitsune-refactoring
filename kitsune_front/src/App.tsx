@@ -1,6 +1,6 @@
 import React, {Component, JSXElementConstructor, ReactElement} from "react";
 //React Router
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route, Link} from "react-router-dom";
 import {ProtectedRoute} from './components/customRoutes';
 
 //Redux
@@ -31,17 +31,17 @@ type ReduxType = ReturnType<typeof mapStateToProps>;
 class App extends Component<ReduxType> {
 
     render(): ReactElement<JSXElementConstructor<any>> {
-
-        let header = null;
-
-        if (this.props.isLogin){
-            header = <Header/>
-        }
-
         return (
             <div className="App">
-                {header}
+                <Header/>
                 <main>
+                    <div className="topAside">
+                        <div>
+                            <Link to="/signup">Sign Up</Link>
+                            <Link to="/">Sign In</Link>
+                            <img src={require("./assets/img/default_avatar.png")} alt=""/>
+                        </div>
+                    </div>
                     <Switch>
                         <Route exact path="/" component={Signin}/>
                         <Route exact path="/signup" component={Signup}/>

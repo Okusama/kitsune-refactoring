@@ -74,8 +74,6 @@ export default class Signup extends React.Component implements IFormComponents{
 
         return(
             <Col lg={12} className="signUp text-center">
-                <h2>Sign Up</h2>
-                <Link to="/">Return to SignIn</Link>
                 <div>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group>

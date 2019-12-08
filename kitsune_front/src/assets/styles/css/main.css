@@ -10,19 +10,91 @@ html {
 
 body {
   margin: 0 auto;
-  font-size: 1.4rem;
+  font-size: 2rem;
   color: #FFB2AA;
 }
 
 main {
   width: 100vw;
   height: 100vh;
-  background-color: #AA4339;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,550800+49 */
+  background: #000000;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #000000 0%, #550800 49%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #000000 0%, #550800 49%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #000000 0%, #550800 49%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#550800",GradientType=1 );
+  /* IE6-9 */
+}
+main .topAside {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+main .topAside div {
+  width: 15%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+main .topAside div > img {
+  width: 15%;
+}
+main .content {
+  height: 95vh;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #FFB2AA;
+}
+
+input {
+  background-color: black !important;
+  color: antiquewhite !important;
+  font-size: 2rem !important;
+}
+
+/*Utilities Class*/
+.hidden {
+  display: none;
+}
+
+/*App*/
+.App {
+  display: flex;
+  flex-direction: row;
+}
+
+/*Header*/
+header {
+  width: 3vw;
+  background-color: black;
+  font-family: "Permanent Marker", cursive;
+}
+header ul {
+  display: flex !important;
+  flex-direction: column;
+}
+header ul li {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+header ul li a {
+  width: inherit;
+  height: inherit;
+}
+header ul li img {
+  width: 100%;
 }
 
 /*Connection Pages*/
@@ -50,10 +122,6 @@ a {
 .signIn > div form button, .signUp > div form button {
   background-color: #801F15;
   border-color: #D4746A;
-}
-
-header img {
-  width: 16%;
 }
 
 /*# sourceMappingURL=main.css.map */
