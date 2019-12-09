@@ -178,3 +178,15 @@ header {
     }
 
 }
+
+.adminPanel {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    div {
+        flex-basis: 45%;
+    }
+
+}

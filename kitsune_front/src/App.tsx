@@ -1,7 +1,7 @@
 import React, {Component, JSXElementConstructor, ReactElement} from "react";
 //React Router
 import {Switch, Route, Link} from "react-router-dom";
-import {ProtectedRoute} from './components/customRoutes';
+import {PrivateRoute, ProtectedRoute} from './components/customRoutes';
 
 //Redux
 import {IRootState} from "./store";
@@ -19,6 +19,8 @@ import Signin from "./pages/public/Signin";
 import Signup from "./pages/public/Signup";
 import Home from "./pages/public/Home";
 import Logout from "./pages/public/Logout";
+import TournamentsList from "./pages/public/TournamentsList";
+import AdminPanel from "./pages/private/AdminPanel";
 
 
 //Redux Wrap
@@ -60,7 +62,9 @@ class App extends Component<ReduxType> {
                         <Route exact path="/" component={Signin}/>
                         <Route exact path="/signup" component={Signup}/>
                         <Route exact path="/logout" component={Logout}/>
-                        <ProtectedRoute isLogin={this.props.isLogin} path="/home" component={Home}/>
+                        <ProtectedRoute isLogin={this.props.isLogin} exact path="/home" component={Home}/>
+                        <ProtectedRoute isLogin={this.props.isLogin} exact path="/tournament/list" component={TournamentsList}/>
+                        <PrivateRoute isAdmin={this.props.isAdmin} exact path="/admin" component={AdminPanel}/>
                     </Switch>
                 </main>
             </div>

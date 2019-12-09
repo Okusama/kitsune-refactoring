@@ -135,4 +135,13 @@ header ul li img {
   border-color: #D4746A;
 }
 
+.adminPanel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.adminPanel div {
+  flex-basis: 45%;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -13,6 +13,7 @@ const postDataOptions = (data:{}): {} => {
 
 const parseRes = (res: Response): Promise<any> => res.json();
 
+/*User*/
 export const signup = (data:{}): Promise<any> => {
     return fetch(URL + "/user/signup", postDataOptions(data))
         .then(res => parseRes(res));
@@ -25,6 +26,13 @@ export const signin = (data:{}): Promise<any> => {
 
 export const authentication = (data:{}): Promise<any> => {
     return fetch(URL + "/user/authentication", postDataOptions(data))
+        .then(res => parseRes(res));
+};
+
+/*Tournament*/
+
+export const createTournament = (data:{}): Promise<any> => {
+    return fetch(URL + "/tournament/create", postDataOptions(data))
         .then(res => parseRes(res));
 };
 

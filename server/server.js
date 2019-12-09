@@ -27,6 +27,9 @@ APP.use(function (req, res, next) {
 let user = require(__dirname + "/src/routes/user");
 APP.use("/user", user);
 
+let tournament = require(__dirname + "/src/routes/tournament");
+APP.use("/tournament", tournament);
+
 //Port d"écoute
 let port = process.env.PORT || 8000;
 SERVER.listen(port, () => console.log("Listening on port" + port));

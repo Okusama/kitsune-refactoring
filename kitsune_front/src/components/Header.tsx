@@ -42,7 +42,7 @@ class Header extends Component<ReduxType> {
         return(
             <React.Fragment>
                 <li id="tournamentNav" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-                    <Link to="">T<span className={this.state.tournamentNav ? "" : "hidden"}>ournament</span></Link>
+                    <Link to="/tournament/list">T<span className={this.state.tournamentNav ? "" : "hidden"}>ournament</span></Link>
                 </li>
                 <li id="championshipNav" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
                     <Link to="">C<span className={this.state.championshipNav ? "" : "hidden"}>hampionship</span></Link>
@@ -57,10 +57,10 @@ class Header extends Component<ReduxType> {
     renderAdminNav = (): React.ReactElement<React.JSXElementConstructor<any>> => {
         return(
             <li id="adminNav" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-                <Link to="">A<span className={this.state.adminNav ? "" : "hidden"}>dmin</span></Link>
+                <Link to="/admin">A<span className={this.state.adminNav ? "" : "hidden"}>dmin</span></Link>
             </li>
         );
-    }
+    };
 
     handleMouseLeave = (event: React.MouseEvent<HTMLLIElement>): void => {
         this.setState({

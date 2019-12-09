@@ -12,7 +12,8 @@
     "mongo-sanitize": "^1.0.1",
     "mongoose": "^5.7.12",
     "nodemon": "^2.0.1",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {},
   "scripts": {

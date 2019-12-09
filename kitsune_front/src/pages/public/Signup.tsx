@@ -31,7 +31,7 @@ export default class Signup extends React.Component implements IFormComponents{
         this.setState({
             [event.currentTarget.id]: event.currentTarget.value
         });
-    }
+    };
 
     handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
 
@@ -62,7 +62,7 @@ export default class Signup extends React.Component implements IFormComponents{
             console.log(err);
         });
 
-    }
+    };
 
     render(): React.ReactElement<React.JSXElementConstructor<any>> {
 
