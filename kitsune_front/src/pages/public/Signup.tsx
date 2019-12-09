@@ -1,7 +1,7 @@
 import React from "react";
 import IFormComponents from "../../interfaces/IFormComponents";
 import { signup } from "../../utils/api";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {Button, Form, Col} from "react-bootstrap";
 
 interface ISignupState {
